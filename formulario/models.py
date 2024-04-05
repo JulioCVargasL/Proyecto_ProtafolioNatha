@@ -11,15 +11,14 @@ class Pagos(models.Model):
     ("Pago completo", "Opcion 3")
   ]
 
-  pay_ID       = models.AutoField(primary_key= True)
-  cotizacion   = models.IntegerField()
-  pay_Comment  = models.TextField()
-  pay_status   = models.CharField(choices=STATUS_OPTIONS)
-
-class evento
+  pay_ID        = models.AutoField(primary_key= True)
+  cotizacion    = models.IntegerField()
+  pay_Comment   = models.TextField()
+  pay_status    = models.CharField(choices=STATUS_OPTIONS)
+  pay_date      = models.DateTimeField()
 
 class Sesion(models.Model):
-  EVENT_TYPE = [
+  EVENT_TYPE    = [
     ("Boda",                "Opcion 1")
     ("Bautizo",             "Opcion 2")
     ("Revelacion de sexo",  "Opcion 3")
@@ -28,18 +27,20 @@ class Sesion(models.Model):
     ("Evento empresarial",  "Opcion 6")
   ]
 
-  ses_ID       = models.AutoField(Primary_key= True)
-  ses_date     = models.DateTimeField()
-  pagos        = models.ForeignKey(Pagos, on_delete=models.PROTECT)  
-  tipo_evento  = models.CharField(choices=EVENT_TYPE)
+  ses_ID        = models.AutoField(Primary_key= True)
+  ses_date      = models.DateTimeField()
+  ses_type      = models.CharField(choices=EVENT_TYPE)
+  ses_comment   = models.TextField()
+ 
+  pagos         = models.ForeignKey(Pagos, on_delete=models.PROTECT)  
 
 class Usuario(models.Model):
 
-  user_ID      = models.AutoField(primary_key= True)
-  user_doc     = models.IntegerField()
-  user_name    = models.CharField(max_length=40, blank= False, null= False)
-  user_email   = models.EmailField()
-  user_pasword = models.CharField(max_length=10, blank= False, null= False)
+  user_ID       = models.AutoField(primary_key= True)
+  user_doc      = models.IntegerField()
+  user_name     = models.CharField(max_length=40, blank= False, null= False)
+  user_email    = models.EmailField()
+  user_pasword  = models.CharField(max_length=10, blank= False, null= False)
 
 class Administrador(models.Model):
 
