@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  {% block title %}{% endblock title %}
 </head>
 
 <body>
@@ -12,6 +12,11 @@
     {% include "layouts/partials/menu.html" %}
     {% include "layouts/partials/introduccion.html" %}
   </header>
+
+  <body>
+    {% block content %}{% endblock content %}
+    {% block registrar %}{% endblock registrar %}
+  </body>
 </body>
 
 </html>
