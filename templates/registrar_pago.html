@@ -9,13 +9,14 @@
 {% endblock content %}
 
 {% block registrar %}
-<form action="{% url "registrar_pago" %}" method="get">
+<form action="{% url "registrar_pago" %}" method="post">
+  {% csrf_token %}
   <label for="cotizacion">Valor de la cotizacion:</label>
   <input type="text" id="cotizacion" name="cotizacion">
   <br>
   <label for="pay_comment">Comentario(s):</label>
   <br>
-  <textarea name="pay_comment"  rows="10" cols="30"></textarea>
+  <textarea name="pay_comment" rows="10" cols="30"></textarea>
   <br>
   <label for="pay_status">Selecciona el estado de pago:</label>
   <select name="pay_status" id="pay_status">
@@ -29,6 +30,8 @@
   <br>
   <button type="submit">Guardar Pago</button>
 </form>
-
+<form action="{% url "listar_pagos" %} ">
+  <button type=" button">Lista de pagos</button>
+</form>
 
 {% endblock registrar %}

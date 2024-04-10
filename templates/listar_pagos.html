@@ -1,0 +1,16 @@
+{% extends "layouts/app.html" %}
+
+{% block content %}
+
+<h2>Listado de pagos</h2>
+
+<ul>
+  {% for pago in pagos %}
+  <li>
+    <p>ID: {{ pago.id }} -- cotizacion: {{ pago.cotizacion }} <br>Comentario: {{ pago.pay_comment }} </p>
+  </li>
+  {% endfor %}
+</ul>
+
+
+{% endblock content %}

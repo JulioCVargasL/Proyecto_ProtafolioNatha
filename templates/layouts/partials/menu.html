@@ -1,7 +1,7 @@
 <nav>
   <ul>
     <li>
-      <a href="#">Inicio</a>
+      <a href={% url "index" %}>Inicio</a>
     </li>
     <li>
       <a href="#">Eventos</a>
@@ -11,6 +11,9 @@
     </li>
     <li>
       <a href={% url "registrar" %}>Registrar</a>
+    </li>
+    <li>
+      <a href={% url "listar_pagos" %}>Lista de pagos</a>
     </li>
   </ul>
 </nav>
