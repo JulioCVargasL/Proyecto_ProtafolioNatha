@@ -7,8 +7,11 @@
 <ul>
   {% for pago in pagos %}
   <li>
-    <p>ID: {{ pago.id }} -- cotizacion: {{ pago.cotizacion }} <br>Comentario: {{ pago.pay_comment }} </p>
+    <a href="{% url "show_editar_pago" %}"> Editar pago No.{{ pago.id }}</a>
+    <p>ID: {{ pago.id }} -- cotizacion: {{ pago.cotizacion }} <br>Comentario: {{ pago.pay_comment }} <br> Fecha: {{ pago.pay_date }}</p>
+    <a href="{% url "eliminar_pago" pago.id %}"> Eliminar pago No. {{ pago.id }} </a>
   </li>
+  <br>
   {% endfor %}
 </ul>
 
