@@ -7,34 +7,33 @@ from datetime   import date
 
 # cuando creamos una clase su nombre debe empezar en mayuscula
 
+class Status(models.Model):
+  nombre      = models.CharField(max_length=20, null=False, blank=False)
+
 class Pagos(models.Model):
 
-  STATUS_OPTIONS = [
-    ("Pendiente",     "Opcion 1"),
-    ("Primer pago",   "Opcion 2"),
-    ("Pago completo", "Opcion 3"),
-  ]
+  # STATUS_OPTIONS = [
+  #   ("Pendiente",     "Opcion 1"),
+  #   ("Primer pago",   "Opcion 2"),
+  #   ("Pago completo", "Opcion 3"),
+  # ]
 
   # pay_ID        = models.AutoField(primary_key= True)
   cotizacion    = models.IntegerField()
   pay_comment   = models.TextField()
-  pay_status    = models.CharField(choices=STATUS_OPTIONS, max_length=20) 
+  pay_status    = models.OneToOneField(Status, on_delete=models.PROTECT)
   pay_date      = models.DateTimeField()
+
+class Event_type(models.Model):
+  type      = models.CharField(max_length=50)
+  def __str__(self):
+    return self.type
 
 class Sesion(models.Model):
 
-  EVENT_TYPE    = [
-    ("Boda",                "Opcion 1"),
-    ("Bautizo",             "Opcion 2"),
-    ("Revelacion de sexo",  "Opcion 3"),
-    ("Cumpleaños",          "Opcion 4"),
-    ("Quince años",         "Opcion 5"),
-    ("Evento empresarial",  "Opcion 6"),
-  ]
-
   # ses_ID          = models.AutoField(primary_key= True)
   ses_date        = models.DateTimeField()
-  ses_type        = models.CharField(choices=EVENT_TYPE, max_length=20)
+  event_type      = models.ForeignKey(Event_type, on_delete=models.PROTECT)
   ses_comment     = models.TextField()
   # Foreing Key(s) Relacion uno a uno
   pagos           = models.OneToOneField(Pagos, on_delete=models.PROTECT)  

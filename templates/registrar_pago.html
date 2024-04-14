@@ -5,29 +5,13 @@
 {% endblock title %}
 
 {% block content %}
-<h2> ! Registro de pago, recuerda que te amo mi vida ¡</h2>
+<h2> ! Registro de pago ¡</h2>
 {% endblock content %}
 
 {% block registrar %}
 <form action="{% url "registrar_pago" %}" method="post">
   {% csrf_token %}
-  <label for="cotizacion">Valor de la cotizacion:</label>
-  <input type="text" id="cotizacion" name="cotizacion">
-  <br>
-  <label for="pay_comment">Comentario(s):</label>
-  <br>
-  <textarea name="pay_comment" rows="10" cols="30"></textarea>
-  <br>
-  <label for="pay_status">Selecciona el estado de pago:</label>
-  <select name="pay_status" id="pay_status">
-    <option value="Pendiente">Pendiente</option>
-    <option value="Primer pago">Primer pago</option>
-    <option value="Pago completo">Pago completo</option>
-  </select>
-  <br>
-  <label for="pay_date">Fecha:</label>
-  <input type="date" id="pay_date" name="pay_date">
-  <br>
+  {{ form }}
   <button type="submit">Guardar Pago</button>
 </form>
 <form action="{% url "listar_pagos" %} ">

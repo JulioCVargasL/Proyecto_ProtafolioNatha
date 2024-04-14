@@ -1,7 +1,7 @@
 {% extends "layouts/app.html" %}
 
 {% block title %}
-<h2>En esta vista podemos editar los pagos</h2>
+<title>Editar pagos</title>
 {% endblock title %}
 
 {% block content %}
@@ -29,8 +29,6 @@
   <br>
   <button type="submit">Guardar Pago</button>
 </form>
-<form action="{% url "editar_pago" %} ">
-  <button type=" button">Lista de pagos</button>
-</form>
+<button type="button"><a href="{% url "listar_pagos" %}">Lista de pagos</a> </button>
 
 {% endblock content %}
