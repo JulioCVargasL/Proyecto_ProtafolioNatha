@@ -21,5 +21,6 @@ from .              import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
-    path('formulario/', include('formulario.urls'), name="formulario")
+    path('formulario/', include('formulario.urls'), name="formulario"),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

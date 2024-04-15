@@ -1,0 +1,21 @@
+{% extends "layouts/app.html" %}
+
+{% block title %}
+<title>Crear estado de pago</title>
+{% endblock title %}
+
+{% block content %}
+<h2> ! Aqui se pueden crear estados de pago ¡</h2>
+{% endblock content %}
+
+{% block registrar %}
+<form action="{% url "crear_status" %}" method="post">
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit">Guardar estado de pago</button>
+</form>
+<form action="{% url "registrar_pago" %} ">
+  <button type=" button">Ir a registro de pago</button>
+</form>
+
+{% endblock registrar %}

@@ -1,0 +1,21 @@
+{% extends "layouts/app.html" %}
+
+{% block title %}
+<title>Agendar</title>
+{% endblock title %}
+
+{% block content %}
+<h2> ! Aqui se pueden agendar las sesiones ¡</h2>
+{% endblock content %}
+
+{% block registrar %}
+<form action="{% url "agendar" %}" method="post">
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit">Agendar sesion</button>
+</form>
+<form action="{% url "registrar_pago" %} ">
+  <button type=" button">Ir a registro de pago</button>
+</form>
+
+{% endblock registrar %}
