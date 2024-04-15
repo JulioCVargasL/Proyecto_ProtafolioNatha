@@ -13,6 +13,8 @@ urlpatterns = [
 
     path('delete_pago/<int:id>',views.delete_pago, name="eliminar_pago"), 
 
-    path('crear_status',        views.crear_status, name="crear_status"),
+    path('crear_status/',       views.crear_status, name="crear_status"),
+    
+    path('login/',              views.login, name="login"),
     
 ]

@@ -61,3 +61,7 @@ class Administrador(models.Model):
   # Foreing Key(s) Relacion muchos a muchos
   usuario       = models.ManyToManyField(Usuario)
   # Esto crea una tabla pivote derivada de este tipo de relaciones 
+
+class Login(models.Model):
+  name            = models.CharField(max_length=50)
+  password        = models.CharField(max_length=50)

@@ -1,6 +1,6 @@
 from django       import forms
 from django.forms import ModelForm
-from .models      import Status,Pagos,Event_type,Sesion,Usuario,Administrador
+from .models      import Status,Pagos,Event_type,Sesion,Usuario,Administrador, Login
 
 class StatusForm(ModelForm):
   class Meta: 
@@ -44,3 +44,7 @@ class AdministradorForm(ModelForm):
     model   = Administrador
     fields  = ("__all__")
 
+class LoginForm(ModelForm):
+  class Meta:
+    model   = Login
+    fields  = ("__all__")
