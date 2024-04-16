@@ -48,8 +48,8 @@ class Usuario(models.Model):
   user_email      = models.EmailField(verbose_name='Correo electronico')
   user_password   = models.CharField(max_length=10, blank= False, null= False, verbose_name='Crear contraseña')
   # Foreing Key(s) Relacion uno a muchos
-  sesion          = models.ForeignKey(Sesion, on_delete=models.PROTECT,)          
-  fecha_registro  = models.DateTimeField (verbose_name='Fecha de registro', format=)
+  sesion          = models.ForeignKey(Sesion, on_delete=models.PROTECT)          
+  # fecha_registro  = models.DateTimeField (verbose_name='Fecha de registro')
 
 class Administrador(models.Model):
 

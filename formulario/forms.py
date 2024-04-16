@@ -48,7 +48,7 @@ class UsuarioForm(ModelForm):
       "user_email":     forms.EmailInput(attrs={"class":"formulario"}),
       "user_doc":       forms.NumberInput(attrs={"class": "formulario"}),  
       "user_password":  forms.TextInput(attrs={"class":"formulario",'type':'password'}),
-      
+      # "sesion":         forms.RadioSelect(attrs={"class":"formulario","required":"False"})
     }
 
 class AdministradorForm(ModelForm):
