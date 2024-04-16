@@ -1,6 +1,6 @@
 from django.db  import models
 from datetime   import date
-
+from django.contrib.auth.decorators import login_required
 #la linea 2 se tre para dar funcionalidad a Fecha de registro de la tabla Usuarios
 
 # Create your models here.
@@ -11,7 +11,7 @@ class Status(models.Model):
   nombre      = models.CharField(max_length=20, null=False, blank=False)
   def __str__(self):
     return self.nombre
-
+# @login_required
 class Pagos(models.Model):
 
   # STATUS_OPTIONS = [
@@ -43,13 +43,13 @@ class Sesion(models.Model):
 class Usuario(models.Model):
 
   # user_ID         = models.AutoField(primary_key= True)
-  fecha_registro  = models.DateField(default=date.today)
-  user_doc        = models.IntegerField()
-  user_name       = models.CharField(max_length=40, blank= False, null= False)
-  user_email      = models.EmailField()
-  user_password   = models.CharField(max_length=10, blank= False, null= False)
+  user_doc        = models.IntegerField(verbose_name='Numero de documento')
+  user_name       = models.CharField(max_length=40, blank= False, null= False,verbose_name= 'Nombre')
+  user_email      = models.EmailField(verbose_name='Correo electronico')
+  user_password   = models.CharField(max_length=10, blank= False, null= False, verbose_name='Crear contraseña')
   # Foreing Key(s) Relacion uno a muchos
-  sesion          = models.ForeignKey(Pagos, on_delete=models.PROTECT)          
+  sesion          = models.ForeignKey(Sesion, on_delete=models.PROTECT,)          
+  fecha_registro  = models.DateTimeField (verbose_name='Fecha de registro', format=)
 
 class Administrador(models.Model):
 

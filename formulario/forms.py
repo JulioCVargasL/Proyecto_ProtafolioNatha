@@ -1,6 +1,11 @@
 from django       import forms
 from django.forms import ModelForm
 from .models      import Status,Pagos,Event_type,Sesion,Usuario,Administrador, Login
+from django.contrib.auth.decorators import login_required
+
+from django.contrib.auth.forms  import UserCreationForm
+from django.urls                import reverse_lazy
+from django.views.generic       import CreateView
 
 class StatusForm(ModelForm):
   class Meta: 
@@ -37,7 +42,14 @@ class SesionForm(ModelForm):
 class UsuarioForm(ModelForm):
   class Meta:
     model   = Usuario
-    fields  = ("__all__")
+    fields  = ["user_name","user_email","user_doc","user_password","sesion"]
+    widgets = {
+      "user_name":      forms.TextInput(attrs={"class":"formulario", "max_length":50, "required":True}),
+      "user_email":     forms.EmailInput(attrs={"class":"formulario"}),
+      "user_doc":       forms.NumberInput(attrs={"class": "formulario"}),  
+      "user_password":  forms.TextInput(attrs={"class":"formulario",'type':'password'}),
+      
+    }
 
 class AdministradorForm(ModelForm):
   class Meta:

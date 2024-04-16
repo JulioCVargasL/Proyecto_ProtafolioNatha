@@ -7,6 +7,16 @@ views {% endcomment %}
 {% endblock title %}
 
 {% block content %}
-<h2>¡ Esta es la seccion de Inicio !</h2>
+{% if user.is_authenticated %}
+<h2>! HOLA {{ user.username }} !</h2>
+<form action="{% url 'logout' %}" method="post">
+  {% csrf_token %}
+  <button type="submit"> Salir </button>
+</form>
+{% else %}
+<h2>¡Hola bienvenido!</h2>
+<p> No has iniciado sesión</p>
+<a href="{% url 'login' %}"> Ingresar </a>
+{% endif %}
 {% endblock content %}
 

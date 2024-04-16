@@ -1,0 +1,20 @@
+{% extends "layouts/app.html" %}
+
+
+{% block title %}
+<title>¡Registrate!</title>
+{% endblock title %}
+
+{% block content %}
+<h2>¡ REGISTRO !</h2>
+{% endblock content %}
+
+{% block registrar %}
+
+<form method="post">
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit">Ingresar</button>
+</form>
+
+{% endblock registrar %}
