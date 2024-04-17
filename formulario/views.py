@@ -7,23 +7,6 @@ def admin_dashboard(request):
   return render(request, '1.administrador/admin_dashboard.html')
 # Create your views here.
 
-def signup(request):
-  if request.method == 'POST':
-    form = UsuarioForm(request.POST)
-    if form.is_valid():
-      form.save()
-      form = UsuarioForm()
-      return render(request, 'registration/signup.html', {
-        'form':form,
-      })
-  else:
-    form = UsuarioForm()
-    return render(request, 'registration/signup.html', {
-      'form':form,
-    })
-  
-
-
 def login(request):
   if request.method == 'POST':
     form = LoginForm(request.POST)
@@ -39,8 +22,21 @@ def login(request):
       'form':form,
     })
   
-
-
+def signup(request):
+  if request.method == 'POST':
+    form = UsuarioForm(request.POST)
+    if form.is_valid():
+      form.save()
+      form = UsuarioForm()
+      return render(request, 'registration/signup.html', {
+        'form':form,
+      })
+  else:
+    form = UsuarioForm()
+    return render(request, 'registration/signup.html', {
+      'form':form,
+    })
+  
 def crear_status(request):
   if request.method == 'POST':
     form = StatusForm(request.POST)
