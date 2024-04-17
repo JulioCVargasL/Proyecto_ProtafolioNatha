@@ -9,13 +9,13 @@
 {% endblock content %}
 
 {% block registrar %}
+
 <form action="{% url "crear_status" %}" method="post">
   {% csrf_token %}
   {{ form }}
   <button type="submit">Guardar estado de pago</button>
 </form>
-<form action="{% url "registrar_pago" %} ">
-  <button type=" button">Ir a registro de pago</button>
+<form action="{% url "admin_dashboard" %}">
+  <button type="submit"> Regresar </button>
 </form>
-
 {% endblock registrar %}

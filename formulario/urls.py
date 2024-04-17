@@ -3,26 +3,16 @@ from django.urls    import path, include
 from .              import views
 
 urlpatterns = [
-    path("signup/",             views.signup, name="signup"),
+    path("signup/",          views.signup, name="signup"),
 
     path("admin_dashboard/", views.admin_dashboard, name="admin_dashboard"),
 
-    path('login/',              views.login, name="login"),
+    path('login/',           views.login, name="login"),
 
-    path('registrar_pago/',     views.registrar_pago,   name="registrar_pago"),
-    path('agendar/',            views.agendar, name="agendar"),
+    path('agendar/',         views.agendar, name="agendar"),
 
-    path('listar_pagos/',       views.listar,           name="listar_pagos"),
+    path('crear_status/',    views.crear_status, name="crear_status"),
 
-    path('show_editar_pago/',   views.show_editar_pago, name="show_editar_pago"),
-
-    path('editar_pago/',        views.editar_pago,      name="editar_pago"),
-
-    path('delete_pago/<int:id>',views.delete_pago, name="eliminar_pago"), 
-
-    path('crear_status/',       views.crear_status, name="crear_status"),
-    
-
-    
-    
+    path('event_type/',      views.event_type, name="event_type"),
+        
 ]

@@ -1,6 +1,6 @@
 from django       import forms
 from django.forms import ModelForm
-from .models      import Status,Pagos,Event_type,Sesion,Usuario,Administrador, Login
+from .models      import Status,Event_type,Sesion,Usuario,Login
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.forms  import UserCreationForm
@@ -15,22 +15,24 @@ class LoginForm(ModelForm):
 class UsuarioForm(ModelForm):
   class Meta:
     model   = Usuario
-    fields  = ["user_name","user_email","user_doc"]
+    fields  = ["user_name","user_email","user_doc","user_phone"]
     widgets = {
       "user_name":      forms.TextInput(attrs={"class":"formulario", "max_length":50, "required":True}),
       "user_email":     forms.EmailInput(attrs={"class":"formulario"}),
+      "user_phone":     forms.NumberInput(attrs={"class": "formulario"}),
       "user_doc":       forms.NumberInput(attrs={"class": "formulario"}),  
     }
+
+class StatusForm(ModelForm):
+  class Meta: 
+    model   = Status
+    fields  = ["nombre"]
 
 class Event_typeForm(ModelForm):
   class Meta:
     model   = Event_type
-    fields  = ("__all__")
+    fields  = ["type"]
 
-class StatusForm(ModelForm):
-  class Meta: 
-    model     = Status
-    fields    = ("__all__")
 
 
 class SesionForm(ModelForm):
@@ -41,8 +43,9 @@ class SesionForm(ModelForm):
       "usuario":      forms.Select(attrs={"class": "formulario"}),
       "event_type":   forms.Select(attrs={"class":"formulario"}),  
       "ses_date":     forms.DateInput(attrs={'type':'date', "class": "formulario"}),
-      "ses_comment":  forms.Textarea(attrs={"cols": 20, "rows": 5, "class":"fomulario"}),
-      "cotizacion":   forms.DateInput(attrs={'type':'date', "class": "formulario"}),
+      "cotizacion":   forms.NumberInput(attrs={"class": "formulario"}),
       "pay_status":   forms.RadioSelect(attrs={"class": "formulario"}),
+      "pay_date":     forms.DateInput(attrs={'type':'date', "class": "formulario"}),
+      "ses_comment":  forms.Textarea(attrs={"cols": 20, "rows": 5, "class":"fomulario"}),
     }
 

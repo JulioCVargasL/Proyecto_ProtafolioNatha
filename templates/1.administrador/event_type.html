@@ -1,20 +1,18 @@
 {% extends "layouts/app.html" %}
 
-
 {% block title %}
-<title>¡Registrate!</title>
+<title>Tipo evento</title>
 {% endblock title %}
 
 {% block content %}
-<h1>¡ Registro de Clientes !</h1>
+<h2> ! Aqui se pueden Crear los tipos de eventos ¡</h2>
 {% endblock content %}
 
 {% block registrar %}
-<h2> Ingresa la singuiente informacion</h2>
-<form action="{% url "signup" %}" method="post">
+<form action="{% url "event_type" %}" method="post">
   {% csrf_token %}
   {{ form }}
-  <button type="submit">Ingresar</button>
+  <button type="submit">crear evento</button>
 </form>
 </form>
 <form action="{% url "admin_dashboard" %}">

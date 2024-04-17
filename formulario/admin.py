@@ -7,4 +7,4 @@ class AdministrarUsuarios(admin.ModelAdmin):
   search_fields = ('user_name','user_email','user_doc')
   list_filter   = ('user_doc','user_name')
 
-admin.site.register(Usuario, AdministrarUsuarios)
+admin.site.register(Usuario)

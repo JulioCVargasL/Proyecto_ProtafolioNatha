@@ -19,31 +19,30 @@ class Usuario(models.Model):
   user_phone      = models.IntegerField(verbose_name='Numero de teléfono')
   fecha_registro  = models.DateTimeField (verbose_name='Fecha de registro',auto_now_add=True)
   def __str__(self):
-    return self.user_name
-  admin          = models.ForeignKey(Login, on_delete=models.PROTECT)      
+    return self.user_name     
 
 # @login_required
-class Event_type(models.Model):
-  type      = models.CharField(max_length=30, null=False, blank=False)
-  def __str__(self):
-    return self.type
-
 class Status(models.Model):
-  nombre      = models.CharField(max_length=30, null=False, blank=False)
+  nombre    = models.CharField(max_length=30, null=False, blank=False,verbose_name='Nuevo estado de pago')
   def __str__(self):
     return self.nombre
+
+class Event_type(models.Model):
+  type      = models.CharField(max_length=30, null=False, blank=False,verbose_name='Nuevo evento')
+  def __str__(self):
+    return self.type
   
 class Sesion(models.Model):
 
   # ses_ID          = models.AutoField(primary_key= True)
-  ses_date        = models.DateTimeField()
-  ses_comment     = models.TextField()
-  cotizacion      = models.IntegerField()
-  pay_date        = models.DateTimeField()
+  ses_date        = models.DateTimeField(verbose_name='Fecha del evento')
+  ses_comment     = models.TextField(verbose_name='Comentarios')
+  cotizacion      = models.IntegerField(verbose_name='Cotizacion')
+  pay_date        = models.DateTimeField(verbose_name='Fecha de pago')
   # Foreing Key(s) Relacion uno a muchos
-  usuario         = models.ForeignKey(Usuario, on_delete=models.PROTECT)  
-  event_type      = models.ForeignKey(Event_type, on_delete=models.PROTECT)
-  pay_status      = models.OneToOneField(Status, on_delete=models.PROTECT)
+  usuario         = models.ForeignKey(Usuario, on_delete=models.PROTECT,verbose_name='Cliente')  
+  event_type      = models.ForeignKey(Event_type, on_delete=models.PROTECT,verbose_name='Tipo de evento')
+  pay_status      = models.OneToOneField(Status, on_delete=models.PROTECT,verbose_name='Estado de pago')
  
 
 
