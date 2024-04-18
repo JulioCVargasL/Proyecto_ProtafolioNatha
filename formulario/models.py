@@ -42,7 +42,7 @@ class Sesion(models.Model):
   # Foreing Key(s) Relacion uno a muchos
   usuario         = models.ForeignKey(Usuario, on_delete=models.PROTECT,verbose_name='Cliente')  
   event_type      = models.ForeignKey(Event_type, on_delete=models.PROTECT,verbose_name='Tipo de evento')
-  pay_status      = models.OneToOneField(Status, on_delete=models.PROTECT,verbose_name='Estado de pago')
+  pay_status      = models.ForeignKey(Status, on_delete=models.PROTECT,verbose_name='Estado de pago')
  
 
 

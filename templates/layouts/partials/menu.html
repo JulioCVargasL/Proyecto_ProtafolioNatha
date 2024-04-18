@@ -2,13 +2,13 @@
 <nav>
   <ul>
     <li>
-      <a href={% url "index" %}>Inicio</a>
+      <a href={% url "admin_dashboard" %}>Inicio</a>
     </li>
     <li>
-      <a href="#">Eventos</a>
+      <a href={% url "signup" %}>Registrar CLIENTE</a>
     </li>
     <li>
-      <a href="#">Contacto</a>
+      <a href={% url "agendar" %}>agendar sesion</a>
     </li>
     <li>
       <a href={% url "event_type" %}>Crear tipo de evento</a>
@@ -17,13 +17,13 @@
       <a href={% url "crear_status" %}>Crear estado de pago</a>
     </li>
     <li>
-      <a href={% url "agendar" %}>agendar sesion</a>
+      <a href="#">Eventos</a>
+    </li>
+    <li>
+      <a href="#">Contacto</a>
     </li>
     <li>
       <a href={% url "login" %}>LOGIN</a>
-    </li>
-    <li>
-      <a href={% url "signup" %}>Registrar CLIENTE</a>
     </li>
   </ul>
 </nav>

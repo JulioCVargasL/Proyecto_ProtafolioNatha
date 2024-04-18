@@ -13,14 +13,14 @@ def login(request):
     if form.is_valid():
       form.save()
       form = LoginForm()
-      return render(request, 'login.html', {
-        'form':form,
-      })
-  else:
-    form = LoginForm()
     return render(request, 'login.html', {
       'form':form,
     })
+  else:
+    form = LoginForm()
+  return render(request, 'login.html', {
+    'form':form,
+  })
   
 def signup(request):
   if request.method == 'POST':
@@ -28,29 +28,46 @@ def signup(request):
     if form.is_valid():
       form.save()
       form = UsuarioForm()
-      return render(request, "registration/signup.html", {
-        'form':form,
-      })
+
+    lista_usuarios = Usuario.objects.all()  
+    return render(request, "registration/signup.html", {
+      'form':form,
+      'lista_usuarios':lista_usuarios
+    })
   else:
     form = UsuarioForm()
-    return render(request, 'registration/signup.html', {
-      'form':form,
-    })
+
+  lista_usuarios = Usuario.objects.all()
+
+  return render(request, 'registration/signup.html', {
+    'form':form,
+    'lista_usuarios':lista_usuarios
+  })
+
+# def user_list(request):
+#   lista_usuarios = Usuario.objects.all()
+#   return render(request, 'registration/signup.html', {
+#     'lista_usuarios': lista_usuarios
+#   })
   
 def crear_status(request):
   if request.method == 'POST':
-    form = StatusForm(request.POST)
-    if form.is_valid():
-      form.save()
-      form = StatusForm()
-      return render(request, '1.administrador/crear_status.html', {
-        'form':form,
-      })
-  else:
-    form = StatusForm()
+    form1 = StatusForm(request.POST, prefix='form1')
+    if form1.is_valid():
+      form1.save()
+      
+      form1 = StatusForm()
+      
     return render(request, '1.administrador/crear_status.html', {
-      'form':form,
+      'form1':form1
     })
+    
+  else:
+    form1 = StatusForm(prefix='form1')
+    
+  return render(request, '1.administrador/crear_status.html', {
+    'form':form1
+  })
   
 def event_type(request):
   if request.method == 'POST':
@@ -58,14 +75,14 @@ def event_type(request):
     if form.is_valid():
       form.save()
       form = Event_typeForm()
-      return render(request, '1.administrador/event_type.html', {
-        'form':form,
-      })
-  else:
-    form = Event_typeForm()
     return render(request, '1.administrador/event_type.html', {
       'form':form,
-    })  
+    })
+  else:
+    form = Event_typeForm()
+  return render(request, '1.administrador/event_type.html', {
+    'form':form,
+  })  
 
 #  metodo POST  y empleando un formulario
   
@@ -75,15 +92,14 @@ def agendar(request):
     if form.is_valid():
       form.save()
       form = SesionForm()
-      return render(request, '1.administrador/agendar.html', {
-        'form':form,
-        'success_message': 'Saved successfully!',
-      })
+    return render(request, '1.administrador/agendar.html', {
+    'form':form,
+    })
   else:
     form = SesionForm()
-    return render(request, '1.administrador/agendar.html', {
-      'form':form,
-    })
+  return render(request, '1.administrador/agendar.html', {
+  'form':form,
+  })
 
 # en esta secion editamos los registros de pago 
 

@@ -20,4 +20,18 @@
 <form action="{% url "admin_dashboard" %}">
   <button type="submit"> Regresar </button>
 </form>
+<h3> Lista de usuarios </h3>
+<ul>
+{% for usuario in lista_usuarios %}
+  <li>
+  <p>
+    Nombre:         {{usuario.user_name}} <br>
+    Documento:      {{usuario.user_doc}}<br>
+    E-mail:         {{usuario.user_email}}<br>
+    Telefono:       {{usuario.user_phone}}<br>
+    fecha de reg.:  {{usuario.fecha_registro}}<br>
+  </p>
+  </li>
+{% endfor %}
+</ul>
 {% endblock registrar %}
