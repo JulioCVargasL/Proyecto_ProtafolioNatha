@@ -9,7 +9,7 @@
   
 }
 body{
-  background-image: url(images/fondo1.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.058),rgba(232, 160, 6, 0.914)),url(images/fondo2.jpg);
   background-position: center 20% ;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -30,6 +30,9 @@ header {
 .logo{
   height: 80px;
   border-radius: 10px;
+}
+.imagenes{
+  height: 50vh;
 }
 nav ul li {
   list-style-type: none;
@@ -54,6 +57,7 @@ button{
   border-radius: 20px;
   font-size: 20px;
   font-weight: bold;
+  color: #595959;
 }
 button:hover {
   border: none;
@@ -63,7 +67,7 @@ button:hover {
   border-radius: 20px;
   font-size: 20px;
   font-weight: bold;
-  color: #595959;
+  color: #0D0D0D;
   transition: .3S;
 }
 
