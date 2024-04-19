@@ -13,14 +13,14 @@
 
 <h1> Selecciona una accion:</h1>
 
-<form action="{% url "signup" %}">
-  <button type="submit"> Registrar Cliente </button>
-</form>
-<form action="{% url "lista_usuarios" %}">
-  <button type="submit"> lista de clientes </button>
-</form>
 <form action="{% url "agendar" %}">
-  <button type="submit"> Agendar sesion </button>
+  <button type="submit"> Agendar una sesion </button>
+</form>
+<form action="{% url "lista_sesiones" %}">
+  <button type="submit"> listar sesiones </button>
+</form>
+<form action="{% url "admin_users" %}">
+  <button type="submit"> Clientes </button>
 </form>
 </form>
 <form action="{% url "admin_dashboard" %}">

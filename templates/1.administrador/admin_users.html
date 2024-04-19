@@ -6,7 +6,7 @@
 
 
 {% block content %}
-<h2> ! administrador de Clientes ¡</h2>
+<h2> ! administra tus Clientes ¡</h2>
 {% endblock content %}
 
 {% block registrar %}
@@ -19,8 +19,8 @@
 <form action="{% url "lista_usuarios" %}">
   <button type="submit"> lista de clientes </button>
 </form>
-<form action="{% url "agendar" %}">
-  <button type="submit"> Agendar sesion </button>
+<form action="{% url "admin_sesiones" %}">
+  <button type="submit"> Sesiones </button>
 </form>
 </form>
 <form action="{% url "admin_dashboard" %}">
