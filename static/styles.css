@@ -1,46 +1,74 @@
 /* Estilos generales */
-body {
+*{
   margin: 0;
   padding: 0;
   font-family: "Courgette";
   font-weight: 400;
   font-style: normal;
+  box-sizing: border-box;
+  
 }
-
+body{
+  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0, 0, 0, 0.6)),url(images/fondo2.jpg);
+  background-position: center 20% ;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10PX 3% ;
+}
 header {
-  background-color: #0D0D0D;
+  background-color: #737373b0;
   color: #BFBFBF;
-  padding: 10px;
+  padding: 5px;
+  width: 100%;
 }
 
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Estilos para la barra de navegación */
-nav {
-  background-color: #3F3F40;
-  padding: 10px;
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.logo{
+  height: 80px;
+  border-radius: 10px;
 }
 
 nav ul li {
-  display: inline;
-  margin-right: 10px;
+  list-style-type: none;
+  display: inline-block;
+  padding: 5px 10px;
+} 
+
+nav ul li a{
+  color:#F2F2F2;
+  text-decoration: none; 
+}
+nav ul li a:hover{
+  color: #d9be48;
+  text-decoration: none;
+  transition: .3S;
+}
+button{
+  border: none;
+  padding: 10px;
+  background-color: #D9A648;
+  padding: 12px 30px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+button:hover {
+  border: none;
+  padding: 10px;
+  background-color: #d9be48;
+  padding: 12px 30px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #595959;
+  transition: .3S;
 }
 
-nav ul li a {
-  color: #f5f2f2;
-  text-decoration: none;
-}
-body{
-  background-color: #D9D9D9;
-  
+main{
+  padding: 10px;
+  background-color: #D9D9D9; 
 }
