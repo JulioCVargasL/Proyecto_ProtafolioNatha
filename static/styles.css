@@ -9,11 +9,7 @@
   
 }
 body{
-<<<<<<< HEAD
-  background-image: linear-gradient(rgba(0, 0, 0, 0.058),rgba(232, 160, 6, 0.914)),url(images/fondo2.jpg);
-=======
-  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0, 0, 0, 0.6)),url(images/fondo2.jpg);
->>>>>>> cd147439d6616069762f223918e0c4e01a39a072
+  background-image: url(images/fondo1.jpg);
   background-position: center 20% ;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -35,13 +31,6 @@ header {
   height: 80px;
   border-radius: 10px;
 }
-<<<<<<< HEAD
-.imagenes{
-  height: 50vh;
-}
-=======
-
->>>>>>> cd147439d6616069762f223918e0c4e01a39a072
 nav ul li {
   list-style-type: none;
   display: inline-block;
@@ -65,10 +54,6 @@ button{
   border-radius: 20px;
   font-size: 20px;
   font-weight: bold;
-<<<<<<< HEAD
-  color: #595959;
-=======
->>>>>>> cd147439d6616069762f223918e0c4e01a39a072
 }
 button:hover {
   border: none;
@@ -78,11 +63,7 @@ button:hover {
   border-radius: 20px;
   font-size: 20px;
   font-weight: bold;
-<<<<<<< HEAD
-  color: #0D0D0D;
-=======
   color: #595959;
->>>>>>> cd147439d6616069762f223918e0c4e01a39a072
   transition: .3S;
 }
 
