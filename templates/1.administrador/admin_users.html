@@ -1,0 +1,30 @@
+{% extends "layouts/app.html" %}
+
+{% block title %}
+<title>Admin_Users</title>
+{% endblock title %}
+
+
+{% block content %}
+<h2> ! administrador de Clientes ¡</h2>
+{% endblock content %}
+
+{% block registrar %}
+
+<h1> Selecciona una accion:</h1>
+
+<form action="{% url "signup" %}">
+  <button type="submit"> Registrar Cliente </button>
+</form>
+<form action="{% url "lista_usuarios" %}">
+  <button type="submit"> lista de clientes </button>
+</form>
+<form action="{% url "agendar" %}">
+  <button type="submit"> Agendar sesion </button>
+</form>
+</form>
+<form action="{% url "admin_dashboard" %}">
+  <button type="submit"> Regresar </button>
+</form>
+
+{% endblock registrar %}

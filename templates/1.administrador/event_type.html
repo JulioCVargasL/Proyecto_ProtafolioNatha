@@ -14,9 +14,22 @@
   {{ form }}
   <button type="submit">crear evento</button>
 </form>
-
-<br><br>
-<form action="{% url "admin_dashboard" %}">
+<br>
+<form action="{% url "agendar" %}">
   <button type="submit"> Regresar </button>
 </form>
+<br>
+<h3> Lista de tipos de Eventos </h3>
+<ul>
+{% for type in lista_type %}
+
+<li>
+  <br>
+  <p>
+  * {{type.type}} <br>
+  </p>
+  </li>
+
+{% endfor %}
 {% endblock registrar %}
+

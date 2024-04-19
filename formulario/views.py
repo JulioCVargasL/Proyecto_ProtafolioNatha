@@ -1,11 +1,22 @@
-from django.shortcuts           import render, redirect
+from django.shortcuts           import render, redirect, get_object_or_404
 from django.http                import HttpResponse
 from .forms                     import StatusForm,SesionForm,UsuarioForm,LoginForm,Event_typeForm
-from .models                    import Usuario
+from .models                    import Usuario, Status, Event_type, Sesion, Login
 
+# Create your views here.
+# Vista pricipal admin
 def admin_dashboard(request):
   return render(request, '1.administrador/admin_dashboard.html')
-# Create your views here.
+
+# Administracion de usuarios
+
+def admin_users(request):
+  return render(request, '1.administrador/admin_users.html')
+
+def admin_sesiones(request):
+  return render(request, '1.administrador/admin_sesiones.html')
+
+# Administrar Sesiones
 
 def login(request):
   if request.method == 'POST':
@@ -21,35 +32,67 @@ def login(request):
   return render(request, 'login.html', {
     'form':form,
   })
-  
+
+# Registrar Clientes
+
 def signup(request):
   if request.method == 'POST':
     form = UsuarioForm(request.POST)
     if form.is_valid():
       form.save()
       form = UsuarioForm()
-
-    lista_usuarios = Usuario.objects.all()  
+ 
     return render(request, "registration/signup.html", {
       'form':form,
-      'lista_usuarios':lista_usuarios
     })
   else:
     form = UsuarioForm()
 
-  lista_usuarios = Usuario.objects.all()
-
   return render(request, 'registration/signup.html', {
     'form':form,
-    'lista_usuarios':lista_usuarios
   })
 
-# def user_list(request):
-#   lista_usuarios = Usuario.objects.all()
-#   return render(request, 'registration/signup.html', {
-#     'lista_usuarios': lista_usuarios
-#   })
+# lista de usuarios
+
+def user_list(request):
+  lista_usuarios = Usuario.objects.all()
+  return render(request, '1.administrador/lista_usuarios.html', {
+    'lista_usuarios': lista_usuarios
+  })
+
+# eliminar usuario
+
+def delete_user(request, id):
+  eliminar = Usuario.objects.get(id=id)
+  eliminar.delete()
+  return redirect('lista_usuarios')
+
+# Editar usuario
+
+def edit_user(request, id):
+
+  editar = get_object_or_404(Usuario, id = id)
+
+  if request.method == 'POST':
+    form = UsuarioForm(request.POST, instance=editar)
+    if form.is_valid():
+      form.save()
+
+      # form = UsuarioForm(instance=editar)
+
+    return redirect('lista_usuarios')
   
+  else:
+
+    form = UsuarioForm(instance=editar)
+
+  return render(request, '1.administrador/editar_user.html',{
+      'form':form,
+      'editar':editar
+    }
+    )
+# Crear y listar estados de pago
+
 def crear_status(request):
   if request.method == 'POST':
     form1 = StatusForm(request.POST, prefix='form1')
@@ -57,34 +100,48 @@ def crear_status(request):
       form1.save()
       
       form1 = StatusForm()
-      
+
+    lista_status = Status.objects.all()    
     return render(request, '1.administrador/crear_status.html', {
-      'form1':form1
+      'form1':form1,
+      'lista_status':lista_status
     })
     
   else:
     form1 = StatusForm(prefix='form1')
-    
+
+  lista_status = Status.objects.all() 
+
   return render(request, '1.administrador/crear_status.html', {
-    'form':form1
+    'form':form1,
+    'lista_status':lista_status
   })
-  
+
+# Crear y listar tipos de eventos
+
 def event_type(request):
   if request.method == 'POST':
     form = Event_typeForm(request.POST)
     if form.is_valid():
       form.save()
       form = Event_typeForm()
+
+    lista_type = Event_type.objects.all()  
     return render(request, '1.administrador/event_type.html', {
       'form':form,
+      'lista_type':lista_type
     })
   else:
     form = Event_typeForm()
+
+  lista_type = Event_type.objects.all()  
+
   return render(request, '1.administrador/event_type.html', {
     'form':form,
+    'lista_type':lista_type
   })  
 
-#  metodo POST  y empleando un formulario
+#  Agendar sesion fotografica
   
 def agendar(request):
   if request.method == 'POST':
@@ -101,6 +158,45 @@ def agendar(request):
   'form':form,
   })
 
+# Listar sesiones 
+
+def sesiones_list(request):
+  lista_sesiones = Sesion.objects.all()
+  return render(request, '1.administrador/lista_sesiones.html', {
+    'lista_sesiones': lista_sesiones
+  })
+
+# Eliminar sesion 
+
+def delete_sesion(request, id):
+  eliminar = Sesion.objects.get(id=id)
+  eliminar.delete()
+  return redirect('lista_sesiones')
+
+# Editar sesion 
+
+def edit_sesion(request, id):
+  
+  editarList = get_object_or_404(Sesion, id = id)
+
+  if request.method == 'POST':
+    form = SesionForm(request.POST, instance=editarList)
+    if form.is_valid():
+      form.save()
+
+      # form = UsuarioForm(instance=editar)
+
+    return redirect('lista_sesiones')
+  
+  else:
+
+    form = SesionForm(instance=editarList)
+
+  return render(request, '1.administrador/editar_sesion.html',{
+      'form':form,
+      'editarList':editarList
+    }
+    )
 # en esta secion editamos los registros de pago 
 
 

@@ -1,0 +1,35 @@
+{% extends "layouts/app.html" %}
+
+
+{% block title %}
+<title>Lista usuarios</title>
+{% endblock title %}
+
+{% block content %}
+<h1>¡ Listado de sesiones !</h1>
+{% endblock content %}
+
+{% block registrar %}
+<form action="{% url "admin_users" %}">
+  <button type="submit"> Regresar </button>
+</form>
+<h2> Lista de sesiones </h2>
+<ul>
+  {% for sesion in lista_sesiones %}
+  <li>
+    <br>
+    <a href="{% url "editar_sesion" sesion.id %}"> Editar </a>
+    <p>
+      Cliente:    {{sesion.usuario}}<br>
+      Evento:     {{sesion.event_type}}<br>
+      Fecha:      {{sesion.ses_date}}<br>
+      Comentario: {{sesion.ses_comment}}<br>
+      cotizacion: {{sesion.cotizacion}}<br>
+      Fecha pago: {{sesion.pay_date}}<br>
+      estado:     {{sesion.pay_status}}<br>
+    </p>
+    <a href="{% url "delete_sesion" sesion.id %}"> Eliminar </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock registrar %}

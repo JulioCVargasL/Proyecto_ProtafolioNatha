@@ -17,7 +17,21 @@
 </form>
 
 <br><br>
-<form action="{% url "admin_dashboard" %}">
+<form action="{% url "agendar" %}">
   <button type="submit"> Regresar </button>
 </form>
+<br>
+<h3> Lista de estados de pago </h3>
+<ul>
+{% for estado in lista_status %}
+
+<li>
+  <br>
+  <p>
+  * {{estado.nombre}} <br>
+  </p>
+  </li>
+
+{% endfor %}
+</ul>
 {% endblock registrar %}

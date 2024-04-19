@@ -1,29 +1,32 @@
+<div class="navbar">
+  <nav>
 
-<nav>
-  <ul>
-    <li>
-      <a href={% url "admin_dashboard" %}>Inicio</a>
-    </li>
-    <li>
-      <a href={% url "signup" %}>Registrar CLIENTE</a>
-    </li>
-    <li>
-      <a href={% url "agendar" %}>agendar sesion</a>
-    </li>
-    <li>
-      <a href={% url "event_type" %}>Crear tipo de evento</a>
-    </li>
-    <li>
-      <a href={% url "crear_status" %}>Crear estado de pago</a>
-    </li>
-    <li>
-      <a href="#">Eventos</a>
-    </li>
-    <li>
-      <a href="#">Contacto</a>
-    </li>
-    <li>
-      <a href={% url "login" %}>LOGIN</a>
-    </li>
-  </ul>
-</nav>
+    <div class="nav-logo">
+      <a href={% url "admin_dashboard" %}>
+        <img src="/static/images/Logo1.jpg" alt="logo" class="logo">
+      </a>
+    </div>
+    <ul>
+      <li>
+        <a href={% url "admin_users" %}>CLIENTES</a>
+      </li>
+      <li>
+        <a href={% url "agendar" %}>agendar sesion</a>
+      </li>
+      <li>
+        <a href={% url "lista_sesiones" %}>Listar sesiones</a>
+      </li>
+     
+      <!-- <li>
+        <a href="#">Eventos</a>
+      </li>
+      <li>
+        <a href="#">Contacto</a>
+      </li> -->
+
+    </ul>
+    <form action="{% url "login" %}">
+      <button type="submit">LOGIN</button>
+    </form>
+  </nav>
+</div>

@@ -1,0 +1,33 @@
+{% extends "layouts/app.html" %}
+
+
+{% block title %}
+<title>Lista usuarios</title>
+{% endblock title %}
+
+{% block content %}
+<h1>¡ Listado de usuarios !</h1>
+{% endblock content %}
+
+{% block registrar %}
+<form action="{% url "admin_users" %}">
+  <button type="submit"> Regresar </button>
+</form>
+<h2> Lista de usuarios </h2>
+<ul>
+  {% for usuario in lista_usuarios %}
+  <li>
+    <br>
+    <a href="{% url "editar_user" usuario.id %}"> Editar </a>
+    <p>
+      Nombre: {{usuario.user_name}} <br>
+      Documento: {{usuario.user_doc}}<br>
+      E-mail: {{usuario.user_email}}<br>
+      Telefono: {{usuario.user_phone}}<br>
+      fecha de reg.: {{usuario.fecha_registro}}<br>
+    </p>
+    <a href="{% url "delete_user" usuario.id %}"> Eliminar </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock registrar %}
