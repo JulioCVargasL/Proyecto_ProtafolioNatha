@@ -9,14 +9,17 @@
 {% endblock content %}
 
 {% block registrar %}
-<form action="{% url " editar_sesion" editarList.id %}" method="post">
+
+
+<form action="{% url "editar_sesion" editarList.id %}" method="post">
+  <p>{{editarList.user_name}}</p>
   {% csrf_token %}
   {{ form }}
   <button type="submit">Editar</button>
 </form>
 </form>
 
-<form action="{% url " lista_sesiones" %}">
+<form action="{% url "lista_sesiones" %}">
   <button type="submit"> Regresar </button>
 </form>
 

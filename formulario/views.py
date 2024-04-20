@@ -2,17 +2,20 @@ from django.shortcuts           import render, redirect, get_object_or_404
 from django.http                import HttpResponse
 from .forms                     import StatusForm,SesionForm,UsuarioForm,LoginForm,Event_typeForm
 from .models                    import Usuario, Status, Event_type, Sesion, Login
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 # Vista pricipal admin
+@login_required
 def admin_dashboard(request):
   return render(request, '1.administrador/admin_dashboard.html')
 
 # Administracion de usuarios
-
+@login_required
 def admin_users(request):
   return render(request, '1.administrador/admin_users.html')
 
+@login_required
 def admin_sesiones(request):
   return render(request, '1.administrador/admin_sesiones.html')
 
@@ -172,6 +175,16 @@ def delete_sesion(request, id):
   eliminar = Sesion.objects.get(id=id)
   eliminar.delete()
   return redirect('lista_sesiones')
+
+def delete_type(request, id):
+  eliminar = Event_type.objects.get(id=id)
+  eliminar.delete()
+  return redirect('event_type')
+
+def delete_status(request, id):
+  eliminar = Status.objects.get(id=id)
+  eliminar.delete()
+  return redirect('crear_status')
 
 # Editar sesion 
 

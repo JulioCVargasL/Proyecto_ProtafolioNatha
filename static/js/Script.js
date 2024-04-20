@@ -1,6 +1,7 @@
 const signup = document.getElementById('signup');
 const editar_user = document.getElementById('editar_user');
-const inputs = document.querySelectorAll('#signup input', '#editar_user input');
+const signupInputs  = document.querySelectorAll('#signup input');
+const editarUserInputs  = document.querySelectorAll('#editar_user input');
 
 
 
@@ -13,7 +14,8 @@ const expresiones = {
 
 // Validando formulario de registro
 
-const campos = {
+
+let campos = {
   user_name: false,
   user_email: false,
   user_phone: false,
@@ -25,6 +27,7 @@ const validarFormulario = (e) => {
   switch (e.target.name) {
 
     case "user_name":
+      
       if (expresiones.nombre.test(e.target.value)) {
         document.getElementById('user_name').classList.remove('formulario-incorrecto');
         document.getElementById('user_name').classList.add('formulario-correcto');
@@ -75,36 +78,54 @@ const validarFormulario = (e) => {
 };
 
 
-inputs.forEach((input) => {
+signupInputs.forEach((input) => {
 
   input.addEventListener('keyup', validarFormulario);
   input.addEventListener('blur', validarFormulario);
 
 });
 
-signup.addEventListener('submit', (e) => {
+editarUserInputs.forEach((input) => {
 
-  if (campos.user_name && campos.user_email && campos.user_phone && campos.user_doc) {
-    signup.reset();
-    alert("El Cliente se registro de manera exitosa");
-  }
-  else {
-    e.preventDefault();
-    alert("Verifica los datos");
-  }
+  input.addEventListener('keyup', validarFormulario);
+  input.addEventListener('blur', validarFormulario);
+
 });
 
-editar_user.addEventListener('submit', (e) => {
+if (signup != null) {
+  signup.addEventListener('submit', (e) => {
 
-  if (campos.user_name && campos.user_email && campos.user_phone && campos.user_doc) {
-    editar_user.reset();
-    alert("El Cliente se registro de manera exitosa");
+    if (campos.user_name && campos.user_email && campos.user_phone && campos.user_doc) {
+      
+      alert("El Cliente se registro de manera exitosa");
+    }
+    else {
+      e.preventDefault();
+      alert("Verifica los datos");
+    }
+  });
+}
+
+if (editar_user != null) {
+  campos = {
+    user_name: true,
+    user_email: true,
+    user_phone: true,
+    user_doc: true
   }
-  else {
-    e.preventDefault();
-    alert("Verifica los datos");
-  }
-});
+
+  editar_user.addEventListener('submit', (e) => {
+
+    if (campos.user_name && campos.user_email && campos.user_phone && campos.user_doc) {
+      
+      alert("El Cliente se registro de manera exitosa");
+    }
+    else {
+      e.preventDefault();
+      alert("Verifica los datos");
+    }
+  });
+}
 
 
 // Validar editar

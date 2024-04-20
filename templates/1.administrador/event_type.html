@@ -21,15 +21,17 @@
 <br>
 <h3> Lista de tipos de Eventos </h3>
 <ul>
+<div class="formulario">
 {% for type in lista_type %}
 
 <li>
-  <br>
+  
   <p>
-  * {{type.type}} <br>
+  {{type.type}} <a href="{% url "delete_type" type.id %}"> Eliminar </a><br>
   </p>
   </li>
 
 {% endfor %}
+<div>
 {% endblock registrar %}
 

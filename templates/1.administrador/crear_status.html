@@ -21,7 +21,6 @@
 <form  action="{% url "agendar" %}">
   <button type="submit"> Regresar </button>
 </form>
-<br>
 <h3> Lista de estados de pago </h3>
 <ul>
 <div>
@@ -30,9 +29,9 @@
 <li>
   <br>
   <p>
-  * {{estado.nombre}} <br>
+  {{estado.nombre}} <a href="{% url "delete_status" estado.id %}"> Eliminar </a><br>
   </p>
-  </li>
+</li>
 
 {% endfor %}
 </ul>

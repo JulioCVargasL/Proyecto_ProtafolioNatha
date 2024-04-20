@@ -17,4 +17,10 @@
   <button type="submit">Ingresar</button>
 </form>
 
+<!-- Usando un formulario -->
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+
 {% endblock registrar %}

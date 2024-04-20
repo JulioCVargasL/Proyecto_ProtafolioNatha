@@ -6,7 +6,11 @@ from .models      import Status,Event_type,Sesion,Usuario,Login
 class LoginForm(ModelForm):
   class Meta:
     model   = Login
-    fields  = ("__all__")
+    fields  = ["name","password"]
+    widgets = {
+      "name":      forms.TextInput(  attrs={"class": "formulario", "max_length":50, "required":True, "placeholder":"Tu nombre"}),
+      "password":  forms.TextInput(  attrs={"class": "formulario", "max_length":50, "required":True, "placeholder":"Tu nombre"}),
+    }
 
 class UsuarioForm(ModelForm):
 
@@ -24,11 +28,17 @@ class StatusForm(ModelForm):
   class Meta: 
     model   = Status
     fields  = ["nombre"]
+    widgets = {
+      "nombre":      forms.TextInput(  attrs={"class": "formulario", "name":"user_name", "id":"user_name", "max_length":50, "required":True, "placeholder":"Pageme pues"}),
+    }
 
 class Event_typeForm(ModelForm):
   class Meta:
     model   = Event_type
     fields  = ["type"]
+    widgets = {
+      "type":      forms.TextInput(  attrs={"class": "formulario", "name":"user_name", "id":"user_name", "max_length":50, "required":True, "placeholder":"Matrimonio"}),
+    }
 
 class SesionForm(ModelForm):
   class Meta:
