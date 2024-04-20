@@ -20,8 +20,8 @@ class UsuarioForm(ModelForm):
     widgets = {
       "user_name":      forms.TextInput(  attrs={"class": "user_name formulario", "name":"user_name", "id":"user_name", "max_length":50, "required":True, "placeholder":"Eje. Pedro Picapiedra"}),
       "user_email":     forms.EmailInput( attrs={"class": "user_email formulario", "name":"user_email","id":"user_email","placeholder":"Eje. E@ejemplo.com"}),
-      "user_phone":     forms.NumberInput(attrs={"class": "user_phone formulario", "name":"user_phone","id":"user_phone","placeholder":"Eje. 123-456-7890"}),
-      "user_doc":       forms.NumberInput(attrs={"class": "user_doc formulario", "name":"user_doc",  "id":"user_doc","placeholder":"Eje. 1065788789"}),  
+      "user_phone":     forms.NumberInput(attrs={"class": "user_phone formulario", "name":"user_phone","id":"user_phone","placeholder":"Eje. 123-456-7890", "max_length":10}),
+      "user_doc":       forms.NumberInput(attrs={"class": "user_doc formulario", "name":"user_doc",  "id":"user_doc","placeholder":"Eje. 1065788789", "max_length":10}),  
     }
 
 class StatusForm(ModelForm):
