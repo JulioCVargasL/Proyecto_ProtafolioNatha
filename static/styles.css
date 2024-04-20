@@ -27,6 +27,7 @@ header {
   padding: 5px;
   width: 100%;
   margin: 5px;
+  border-radius: 10px;
 }
 
 label{
@@ -45,6 +46,7 @@ label{
 }
 .imagenes{
   height: 50vh;
+  border-radius: 10px;
 }
 nav ul li {
   list-style-type: none;
@@ -71,6 +73,7 @@ button{
   font-weight: bold;
   color: #595959;
   margin: 10px;
+  border: 1px solid #070606;
 }
 button:hover {
   border: none;
@@ -81,8 +84,10 @@ button:hover {
   font-size: 20px;
   font-weight: bold;
   color: #0D0D0D;
+  border: 2px solid #070606;
   transition: .3S;
 }
+
 
 main{
   padding: 10px;
