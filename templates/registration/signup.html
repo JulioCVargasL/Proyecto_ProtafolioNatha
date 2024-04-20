@@ -11,9 +11,11 @@
 
 {% block registrar %}
 <h2> Ingresa la singuiente informacion</h2>
-<form action="{% url "signup" %}" method="post">
+<form  id="signup" action="{% url "signup" %}" method="post">
   {% csrf_token %}
+  <div class="signup">
   {{ form }}
+  <div>
   <button type="submit">Registrar</button>
 </form>
 <form action="{% url "admin_users" %}">

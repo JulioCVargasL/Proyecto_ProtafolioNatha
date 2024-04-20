@@ -9,7 +9,7 @@
 {% endblock content %}
 
 {% block registrar %}
-
+<div class="contenedor">
 <form action="{% url "crear_status" %}" method="post">
   {% csrf_token %}
   {{ form }}
@@ -17,12 +17,14 @@
 </form>
 
 <br><br>
-<form action="{% url "agendar" %}">
+
+<form  action="{% url "agendar" %}">
   <button type="submit"> Regresar </button>
 </form>
 <br>
 <h3> Lista de estados de pago </h3>
 <ul>
+<div>
 {% for estado in lista_status %}
 
 <li>

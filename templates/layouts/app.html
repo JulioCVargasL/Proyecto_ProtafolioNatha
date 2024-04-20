@@ -17,11 +17,20 @@
   <header>
     {% include "layouts/partials/menu.html" %}
   </header>
+  <!-- seccion de alertas -->
+  <div class="user_name">
+    <p class="input_error">
+      5 caracteres minimo, sin caracteres especiales
+    </p>
 
+  </div class="contenedor">
   <main>
     {% block content %}{% endblock content %}
+    <div>
     {% block registrar %}{% endblock registrar %}
+    </div>
   </main>
+  <script src="{% static "js/Script.js" %}"></script>
 </body>
 
 </html>

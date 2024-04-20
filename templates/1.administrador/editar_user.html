@@ -9,7 +9,7 @@
 {% endblock content %}
 
 {% block registrar %}
-<form action="{% url "editar_user" editar.id %}" method="post">
+<form id= "editar_user" action="{% url "editar_user" editar.id %}" method="post">
   {% csrf_token %}
   {{ form }}
   <button type="submit">Editar</button>
